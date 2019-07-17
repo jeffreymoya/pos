@@ -1,12 +1,20 @@
 import {configureStore, getDefaultMiddleware} from 'redux-starter-kit'
 
-import rootReducer from './reducers'
-import {createEpicMiddleware} from 'redux-observable';
+import reducers from './reducers'
+import epics from './epics'
+import {createEpicMiddleware} from 'redux-observable'
+import {initDatabase, DbService} from "./services/dbService";
 
-const epicMiddleware = createEpicMiddleware();
+initDatabase();
+
+const epicMiddleware = createEpicMiddleware(epics, {
+    dependencies: {
+        db: DbService
+    }
+});
 
 const store = configureStore({
-    reducer: rootReducer,
+    reducer: reducers,
     middleware: [epicMiddleware, ...getDefaultMiddleware()],
     enhancers: []
 })
