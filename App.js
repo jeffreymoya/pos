@@ -6,10 +6,10 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
-import {Provider} from 'react-redux';
+import React, { Fragment } from 'react';
+import { Provider } from 'react-redux';
 import store from './store';
-import {SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View} from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 
 import {
   Colors,

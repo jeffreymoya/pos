@@ -10,12 +10,15 @@
   "dependencies": {
     "react": "16.8.6",
     "react-native": "0.60.3",
+    "react-native-elements": "^1.1.0",
+    "react-native-offline": "^4.3.2",
     "react-redux": "^7.1.0",
     "redux": "^4.0.4",
     "redux-observable": "^1.1.0",
     "redux-starter-kit": "^0.5.1",
     "redux-thunk": "^2.3.0",
-    "rxdb": "^8.2.1"
+    "rxdb": "^8.2.1",
+    "rxjs": "^6.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",

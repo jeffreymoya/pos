@@ -5,6 +5,9 @@ import RxDB from 'rxdb';
  */
 async function _create() {
   console.log('creating database..');
+
+  RxDB.plugin(require('pouchdb-adapter-http'));
+
   const db = await RxDB.create({
     name: 'pos',
     adapter: '',
@@ -21,7 +24,7 @@ async function _create() {
 
   // sync with server
   await db.pos.sync({
-    remote: ''
+    remote: '',
   });
 
   return db;
