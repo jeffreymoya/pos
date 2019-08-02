@@ -10,6 +10,7 @@
   "dependencies": {
     "expo-constants": "^5.0.1",
     "react": "16.8.6",
+    "react-dom": "^16.8.6",
     "react-native": "0.60.3",
     "react-native-elements": "^1.1.0",
     "react-native-offline": "^4.3.2",
@@ -28,12 +29,26 @@
     "@babel/runtime": "^7.5.4",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.8.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.0.1",
     "jest": "^24.8.0",
     "metro-react-native-babel-preset": "^0.55.0",
     "react-test-renderer": "16.8.6"
   },
   "jest": {
-    "preset": "react-native"
+    "automock": false,
+    "setupFiles": [
+      "../.jest.adapter.js"
+    ],
+    "preset": "react-native",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "modulePaths": [],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ]
   }
 }

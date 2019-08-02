@@ -1,6 +1,6 @@
 import { configureStore, getDefaultMiddleware } from 'redux-starter-kit';
 
-import reducers from './reducers';
+import reducers from './redux';
 import epics from './epics';
 import { createEpicMiddleware } from 'redux-observable';
 import { DbService, initDatabase } from './services/dbService';
@@ -25,7 +25,7 @@ const store = configureStore({
 
 if (process.env.NODE_ENV !== 'production' && module.hot) {
 
-  module.hot.accept('./reducers', () => store.replaceReducer(reducers));
+  module.hot.accept('./redux', () => store.replaceReducer(reducers));
 }
 
 // create local database

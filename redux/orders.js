@@ -12,7 +12,10 @@ const orders = createReducer(
       state.items.push(action.payload);
     },
     remove: (state, action) => {},
+    error: (state, action) => {},
   }
 );
+
+export const { add, update, remove } = orders.actions;
 
 export default orders;
