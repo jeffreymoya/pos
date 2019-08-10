@@ -1,10 +1,11 @@
-import { createReducer } from 'redux-starter-kit';
+import { createSlice } from 'redux-starter-kit';
 
-const orders = createReducer(
-  {
+const orders = createSlice({
+  slice: 'orders',
+  initialState: {
     items: [],
   },
-  {
+  reducers: {
     update: (state, action) => {
       return { ...state, ...action.payload };
     },
@@ -13,9 +14,9 @@ const orders = createReducer(
     },
     remove: (state, action) => {},
     error: (state, action) => {},
-  }
-);
+  },
+});
 
-export const { add, update, remove } = orders.actions;
+export const { add, update, remove, error } = orders.actions;
 
 export default orders;

@@ -1503,6 +1503,11 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
+atob@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/atob/-/atob-2.0.3.tgz#19c7a760473774468f20b2d2d03372ad7d4cbf5d"
+  integrity sha1-GcenYEc3dEaPILLS0DNyrX1Mv10=
+
 atob@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
@@ -1793,7 +1798,7 @@ base62@^1.1.0:
   resolved "https://registry.yarnpkg.com/base62/-/base62-1.2.8.tgz#1264cb0fb848d875792877479dbe8bae6bae3428"
   integrity sha512-V6YHUbjLxN1ymqNLb1DPHoU1CpfdL7d2YTIp5W3U4hhoG4hhxNmsFDs66M9EXxBiSEke5Bt5dwdfMwwZF70iLA==
 
-base64-js@^1.1.2, base64-js@^1.2.3:
+base64-js@^1.0.2, base64-js@^1.1.2, base64-js@^1.2.3:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.3.0.tgz#cab1e6118f051095e58b5281aea8c1cd22bfc0e3"
   integrity sha512-ccav/yGvoa80BQDljCxsmmQ3Xvx60/UpBIij5QN21W3wBi/hhIC9OoO+KLpu9IJTS9j4DRVJ3aDDF9cMSoa2lw==
@@ -1834,6 +1839,11 @@ big-integer@^1.6.16, big-integer@^1.6.7:
   version "1.6.44"
   resolved "https://registry.yarnpkg.com/big-integer/-/big-integer-1.6.44.tgz#4ee9ae5f5839fc11ade338fea216b4513454a539"
   integrity sha512-7MzElZPTyJ2fNvBkPxtFQ2fWIkVmuzw41+BZHSzpEq3ymB2MfeKp1+yXl/tS75xCx+WnyV+yb0kp+K1C3UNwmQ==
+
+blob-polyfill@2.0.20171115:
+  version "2.0.20171115"
+  resolved "https://registry.yarnpkg.com/blob-polyfill/-/blob-polyfill-2.0.20171115.tgz#8e5c2659dda443365fafd6dd421517653f1d5ffd"
+  integrity sha512-qHpuIpWlDLdOzSI9n1+423JL8c60Tbyyu/w4+zQIPCazvKBjf0sqQWiUS2QtyHph3S1C8m17T/jKyhv/DnnQFA==
 
 bluebird@^3.4.7:
   version "3.5.5"
@@ -1945,6 +1955,11 @@ bser@^2.0.0:
   dependencies:
     node-int64 "^0.4.0"
 
+btoa@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/btoa/-/btoa-1.1.2.tgz#3e40b81663f81d2dd6596a4cb714a8dc16cfabe0"
+  integrity sha1-PkC4FmP4HS3WWWpMtxSo3BbPq+A=
+
 buffer-crc32@^0.2.13:
   version "0.2.13"
   resolved "https://registry.yarnpkg.com/buffer-crc32/-/buffer-crc32-0.2.13.tgz#0d333e3f00eac50aa1454abd30ef8c2a5d9a7242"
@@ -1966,6 +1981,14 @@ buffer-from@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
   integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
+
+buffer@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/buffer/-/buffer-5.1.0.tgz#c913e43678c7cb7c8bd16afbcddb6c5505e8f9fe"
+  integrity sha512-YkIRgwsZwJWTnyQrsBTWefizHh+8GYj3kbL1BTiAQ/9pwpino0G7B2gp5tx/FUBqUlvtxV85KNR3mwfAtv15Yw==
+  dependencies:
+    base64-js "^1.0.2"
+    ieee754 "^1.1.4"
 
 bytes@3.0.0:
   version "3.0.0"
@@ -3209,6 +3232,11 @@ eventemitter3@^3.0.0:
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
   integrity sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==
 
+events@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/events/-/events-1.1.1.tgz#9ebdb7635ad099c70dcc4c2a1f5004288e8bd924"
+  integrity sha1-nr23Y1rQmccNzEwqH1AEKI6L2SQ=
+
 exec-sh@^0.2.0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/exec-sh/-/exec-sh-0.2.2.tgz#2a5e7ffcbd7d0ba2755bdecb16e5a427dfbdec36"
@@ -4175,6 +4203,11 @@ identitate@^1.0.0:
   integrity sha512-xnDJ0JYhiZjBDuJRKbHoVzj5yP9FhATxLyUYswQyPdnJrwzGVBqS6DOmvKJi1lk7P+4dkL+hhUhuOZIcOUtG5A==
   dependencies:
     pathington "^1.0.1"
+
+ieee754@^1.1.4:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.13.tgz#ec168558e95aa181fd87d37f55c32bbcb6708b84"
+  integrity sha512-4vf7I2LYV/HaWerSo3XmlMkp5eZ83i+/CDluXi/IGTs/O1sejBNhTtnxzmRZfvOUqj7lZjqHkeTvpgSFDlWZTg==
 
 ignore-walk@^3.0.1:
   version "3.0.1"
@@ -5819,6 +5852,11 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
+left-pad@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/left-pad/-/left-pad-1.2.0.tgz#d30a73c6b8201d8f7d8e7956ba9616087a68e0ee"
+  integrity sha1-0wpzxrggHY99jnlWupYWCHpo4O4=
+
 left-pad@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/left-pad/-/left-pad-1.3.0.tgz#5b8a3a7765dfe001261dde915589e782f8c94d1e"
@@ -7326,6 +7364,38 @@ pouchdb-abstract-mapreduce@7.0.0:
     pouchdb-md5 "7.0.0"
     pouchdb-utils "7.0.0"
 
+pouchdb-adapter-asyncstorage@^6.4.1:
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/pouchdb-adapter-asyncstorage/-/pouchdb-adapter-asyncstorage-6.4.1.tgz#f2ff239f498354f6100ffd9a19097a11b3a4efd1"
+  integrity sha512-TNFKR/g1fHLaDgEdOo5GiUWSZ0BnlZZPtfaZSFgXEYJ7BbbBw6O0102Jxvvh75imnz8aroTcGSUGw9/OGQ8ZHQ==
+  dependencies:
+    atob "2.0.3"
+    blob-polyfill "2.0.20171115"
+    btoa "1.1.2"
+    buffer "5.1.0"
+    events "1.1.1"
+    left-pad "1.2.0"
+    pouchdb-adapter-utils "6.4.3"
+    pouchdb-binary-utils "6.4.3"
+    pouchdb-errors "6.4.3"
+    pouchdb-json "6.4.3"
+    pouchdb-merge "6.4.3"
+    pouchdb-utils "6.4.3"
+    spark-md5 "3.0.0"
+
+pouchdb-adapter-utils@6.4.3:
+  version "6.4.3"
+  resolved "https://registry.yarnpkg.com/pouchdb-adapter-utils/-/pouchdb-adapter-utils-6.4.3.tgz#384bb1bcd37dc7d473016eb450cec53d665bcae4"
+  integrity sha512-P0BgU82tpGxr94CmSj6HA+/20AlQroaxjeHpBkbuntfCybl9TD2F0DJiKRPaU5RvTz6V+emHZQgmlrfHCs+Jhg==
+  dependencies:
+    pouchdb-binary-utils "6.4.3"
+    pouchdb-collections "6.4.3"
+    pouchdb-errors "6.4.3"
+    pouchdb-md5 "6.4.3"
+    pouchdb-merge "6.4.3"
+    pouchdb-promise "6.4.3"
+    pouchdb-utils "6.4.3"
+
 pouchdb-all-dbs@1.0.2, pouchdb-all-dbs@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pouchdb-all-dbs/-/pouchdb-all-dbs-1.0.2.tgz#8fa1aa4b01665e00e0da9c61bf6dbb99eca05d3c"
@@ -7492,6 +7562,13 @@ pouchdb-generate-replication-id@7.0.0:
     pouchdb-collate "7.0.0"
     pouchdb-md5 "7.0.0"
 
+pouchdb-json@6.4.3:
+  version "6.4.3"
+  resolved "https://registry.yarnpkg.com/pouchdb-json/-/pouchdb-json-6.4.3.tgz#a1702c8eb9d656f6566920aaec9fb3e7e1265132"
+  integrity sha512-ou9tDxySHKQv7uU8BjggVjtzNdeim/IcGYhF4yyN2wj4HqJqlanG9l0Rab6tBkCR6px5Gt5e9yCoas5bBZqiGw==
+  dependencies:
+    vuvuzela "1.0.3"
+
 pouchdb-list@4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/pouchdb-list/-/pouchdb-list-4.1.0.tgz#a333c3066987c0d8e50c57a5aec2d3c20150bbe0"
@@ -7540,6 +7617,11 @@ pouchdb-md5@7.0.0:
   dependencies:
     pouchdb-binary-utils "7.0.0"
     spark-md5 "3.0.0"
+
+pouchdb-merge@6.4.3:
+  version "6.4.3"
+  resolved "https://registry.yarnpkg.com/pouchdb-merge/-/pouchdb-merge-6.4.3.tgz#4ef901f4aaa27be6aec0108998a127fe55bb0628"
+  integrity sha512-UuSpex/V1kNr1aXcmg+TQlOdjzMWc08AX/Ja6jrPq9J42M97UFF+7Ijx3JllxDK0j6QJZrvhpvjFzsRhFC4+zw==
 
 pouchdb-merge@7.0.0:
   version "7.0.0"
@@ -9909,6 +9991,11 @@ vlq@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/vlq/-/vlq-1.0.1.tgz#c003f6e7c0b4c1edd623fd6ee50bbc0d6a1de468"
   integrity sha512-gQpnTgkubC6hQgdIcRdYGDSDc+SaujOdyesZQMv6JlfQee/9Mp0Qhnys6WxDWvQnL5WZdT7o2Ul187aSt0Rq+w==
+
+vuvuzela@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/vuvuzela/-/vuvuzela-1.0.3.tgz#3be145e58271c73ca55279dd851f12a682114b0b"
+  integrity sha1-O+FF5YJxxzylUnndhR8SpoIRSws=
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "expo-constants": "^5.0.1",
+    "pouchdb-adapter-asyncstorage": "^6.4.1",
     "react": "16.8.6",
     "react-dom": "^16.8.6",
     "react-native": "0.60.3",
@@ -38,17 +39,16 @@
   },
   "jest": {
     "automock": false,
-    "setupFiles": [
-      "../.jest.adapter.js"
-    ],
     "preset": "react-native",
+    "setupFiles": [
+      "<rootDir>/.jest.adapter.js"
+    ],
     "testPathIgnorePatterns": [
-      "/node_modules/"
+      "<rootDir>/node_modules/"
     ],
     "modulePaths": [],
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!(rxjs|react-native.*)/)"
     ]
   }
 }
