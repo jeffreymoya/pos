@@ -4,7 +4,6 @@ import store from './store';
 import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 
 import { ThemeProvider } from 'react-native-elements';
-import Constants from 'expo-constants';
 
 const theme = {};
 
@@ -21,7 +20,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Constants.statusBarHeight,
+    paddingTop: 10,
   },
 });
 

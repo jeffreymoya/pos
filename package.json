@@ -8,14 +8,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "expo-constants": "^5.0.1",
     "pouchdb-adapter-asyncstorage": "^6.4.1",
     "react": "16.8.6",
     "react-dom": "^16.8.6",
     "react-native": "0.60.3",
     "react-native-elements": "^1.1.0",
     "react-native-offline": "^4.3.2",
-    "react-native-unimodules": "^0.4.2",
     "react-native-vector-icons": "^6.6.0",
     "react-redux": "^7.1.0",
     "redux": "^4.0.4",

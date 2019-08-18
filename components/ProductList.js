@@ -6,7 +6,7 @@ import { Button } from 'react-native-vector-icons/MaterialCommunityIcons';
 const ProductList = ({ products }) => (
   <View style={styles.container}>
     {products.map((product, i) => (
-      <Card key={i} title={product.title} image={require(product.imageUrl)}>
+      <Card key={i} title={product.name} image={require(product.imageUrl)}>
         <Text style={{ marginBottom: 10 }}>{product.description}</Text>
         <Button
           icon={<Icon name="code" color="#ffffff" />}

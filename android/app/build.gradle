@@ -187,8 +187,6 @@ android {
     }
 }
 
-apply from: '../../node_modules/react-native-unimodules/gradle.groovy'
-
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
@@ -200,7 +198,6 @@ dependencies {
     } else {
       implementation jscFlavor
     }
-    addUnimoduleDependencies()
 }
 
 // Run this once to be able to run the application with BUCK
