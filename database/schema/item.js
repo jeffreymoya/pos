@@ -1,5 +1,6 @@
 const item = {
   schema: {
+    version: 0,
     type: 'object',
     properties: {
       code: {
@@ -27,7 +28,7 @@ const item = {
         type: 'string',
       },
       createdDate: {
-        type: 'date',
+        type: 'string',
       },
       attachments: {
         type: 'array',

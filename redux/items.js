@@ -1,10 +1,10 @@
-import { createSlice } from 'redux-starter-kit';
-import { createAction } from 'redux-starter-kit/src/createAction';
+import { createSlice } from '@reduxjs/toolkit';
+import { createAction } from '@reduxjs/toolkit/src/createAction';
 
 export const fetch = createAction('fetch');
 
 const items = createSlice({
-  slice: 'items',
+  name: 'items',
   initialState: {
     error: false,
     errorMessage: '',

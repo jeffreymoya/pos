@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from 'redux-starter-kit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 
 import reducers from './redux';
 import epics from './epics';
@@ -6,11 +6,15 @@ import { createEpicMiddleware } from 'redux-observable';
 import { db, initDB } from './services/database';
 import createNetworkMiddleware from 'react-native-offline/src/redux/createNetworkMiddleware';
 
-const epicMiddleware = createEpicMiddleware();
+const epicMiddleware = createEpicMiddleware({
+  dependencies: {
+    db: db,
+  },
+});
 
 const networkMiddleware = createNetworkMiddleware({
   queueReleaseThrottle: 200,
-})
+});
 
 const store = configureStore({
   reducer: reducers,
@@ -18,11 +22,7 @@ const store = configureStore({
   enhancers: [],
 });
 
-epicMiddleware.run(epics, {
-  dependencies: {
-    db: db,
-  },
-});
+epicMiddleware.run(epics);
 
 if (process.env.NODE_ENV !== 'production' && module.hot) {
   module.hot.accept('./redux', () => store.replaceReducer(reducers));

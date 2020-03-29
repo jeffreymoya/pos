@@ -1,5 +1,6 @@
 const orderSchema = {
   type: 'object',
+  version: 0,
   properties: {
     code: {
       type: 'string',
@@ -26,7 +27,7 @@ const orderSchema = {
       },
     },
     created: {
-      type: 'date',
+      type: 'string',
     },
     branchCode: {
       type: 'string',

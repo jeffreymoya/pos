@@ -1,16 +1,18 @@
-import { createAction, createSlice } from 'redux-starter-kit';
+import { createAction, createSlice } from '@reduxjs/toolkit';
 
-export const fetchRequest = createAction('fetchRequest');
+export const fetch = createAction('fetch');
 export const sync = createAction('sync');
 export const syncSuccess = createAction('syncSuccess');
 
 const orders = createSlice({
-  slice: 'orders',
-  initialState: {
-    error: false,
-    errorMessage: '',
-    items: [],
-  },
+  name: 'orders',
+  initialState: [
+    {
+      error: false,
+      errorMessage: '',
+      items: [],
+    },
+  ],
   reducers: {
     update: (state, action) => ({ ...state, ...action.payload }),
     add: (state, action) => state.items.push(action.payload),

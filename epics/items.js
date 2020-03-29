@@ -1,15 +1,14 @@
 import { error, fetch, fetchSuccess } from '../redux/items';
 import { of } from 'rxjs/src/internal/observable/of';
-import { combineEpics } from 'redux-observable';
+import { filter, mergeMap } from 'rxjs/operators';
 
-const fetchItems = (action$, state$, { db }) =>
-  action$.ofType(fetch.type).mergeMap(() => {
-    db.get()
-      .findAll()
-      .then(items => fetchSuccess(items))
-      .$.catchError(e => of(error(e)));
-  });
-
-export default combineEpics({
-  fetchItems,
-});
+export default (action$, state$, { db }) =>
+  action$.pipe(
+    filter(fetch.match),
+    mergeMap(() => {
+      db.get()
+        .findAll()
+        .then(items => fetchSuccess(items))
+        .$.catchError(e => of(error(e)));
+    })
+  );

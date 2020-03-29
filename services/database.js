@@ -1,7 +1,7 @@
 import RxDB from 'rxdb';
 import { DATABASE_NAME, DATABASE_REMOTE_SERVER } from '../constants/rxdb';
-import collections from 'collections';
-import testItems from 'testitems';
+import collections from './collections';
+import testItems from './testitems';
 
 /**
  * creates the database
@@ -10,10 +10,11 @@ async function _create() {
   console.log('creating database..');
 
   RxDB.plugin(require('pouchdb-adapter-asyncstorage'));
+  RxDB.plugin(require('pouchdb-adapter-http'));
 
   const db = await RxDB.create({
     name: DATABASE_NAME,
-    adapter: 'node-asyncstorage',
+    adapter: 'asyncstorage',
     queryChangeDetection: true,
   });
   console.log('created database');
