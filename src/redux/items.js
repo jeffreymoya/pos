@@ -5,10 +5,7 @@ export const fetch = createAction('fetch');
 
 const items = createSlice({
   name: 'items',
-  initialState: {
-    error: false,
-    errorMessage: '',
-  },
+  initialState: [],
   reducers: {
     fetchSuccess: (state, action) => ({ ...state, ...action.payload }),
     error: (state, action) => ({

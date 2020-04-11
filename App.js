@@ -1,9 +1,9 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import store from './store';
-import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
-
+import { StatusBar, StyleSheet } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
+import { Provider } from 'react-redux';
+import Home from './src/containers/Home';
+import store from './src/store';
 
 const theme = {};
 
@@ -12,7 +12,7 @@ const App = () => {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <StatusBar barStyle="dark-content" />
-        <SafeAreaView />
+        <Home />
       </ThemeProvider>
     </Provider>
   );

@@ -28,10 +28,13 @@ async function _create() {
     // add hooks
   });
 
+  console.log('syncing..');
   // sync with server
-  await db.orders.sync({
+  const replicationState = db.orders.sync({
     remote: DATABASE_REMOTE_SERVER,
   });
+
+  replicationState.error$.subscribe(error => console.dir(error));
 
   return db;
 }

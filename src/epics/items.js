@@ -6,7 +6,9 @@ export default (action$, state$, { db }) =>
   action$.pipe(
     filter(fetch.match),
     mergeMap(() => {
-      db.get()
+      console.log('fetching items..');
+      return db
+        .get()
         .findAll()
         .then(items => fetchSuccess(items))
         .$.catchError(e => of(error(e)));
