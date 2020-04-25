@@ -1,5 +1,5 @@
-import orderSchema from '../database/schema/orders';
-import item from '../database/schema/item';
+import orderSchema from '../database/schema/orders'
+import item from '../database/schema/item'
 
 export default [
   {
@@ -10,4 +10,4 @@ export default [
     name: 'items',
     ...item,
   },
-];
+]

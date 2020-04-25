@@ -63,6 +63,6 @@ const orderSchema = {
       type: 'string',
     },
   },
-};
+}
 
-export default orderSchema;
+export default orderSchema

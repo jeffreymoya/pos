@@ -1,12 +1,13 @@
-import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
-import { Button, Icon } from 'react-native-elements';
-import OrderItem from './OrderItem';
+import React from 'react'
+import { ScrollView, StyleSheet, View } from 'react-native'
+import { Button, Icon } from 'react-native-elements'
+import OrderItem from './OrderItem'
+import { Order } from '../redux/orders'
 
 const OrderList = ({ orders }) => (
   <View style={styles.container}>
     <ScrollView>
-      {orders && orders.map(order => <OrderItem order={order} />)}
+      {orders && orders.map((order: Order) => <OrderItem order={order} />)}
     </ScrollView>
     <Button
       icon={
@@ -22,6 +23,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
   },
-});
+})
 
-export default OrderList;
+export default OrderList

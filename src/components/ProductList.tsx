@@ -1,23 +1,22 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Card, Icon } from 'react-native-elements';
-import { Button } from 'react-native-vector-icons/MaterialCommunityIcons';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { Card, Icon, Button } from 'react-native-elements'
+import { Item } from '../redux/items'
 
 const ProductList = ({ items }) => (
   <View style={styles.container}>
-    {items.map((product, i) => (
-      <Card key={i} title={product.name} image={product.code}>
+    {items.map((product: Item, i: number) => (
+      <Card key={i} title={product.name} image={[{ uri: product.code }]}>
         <Text style={styles.text}>{product.description}</Text>
         <Button
           icon={<Icon name="code" color="#ffffff" />}
-          backgroundColor="#03A9F4"
           buttonStyle={styles.button}
           title="ADD"
         />
       </Card>
     ))}
   </View>
-);
+)
 
 const styles = StyleSheet.create({
   container: {
@@ -31,6 +30,6 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   text: { marginBottom: 10 },
-});
+})
 
-export default ProductList;
+export default ProductList

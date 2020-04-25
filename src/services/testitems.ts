@@ -43,4 +43,4 @@ export default [
     createdBy: 'jeff',
     createdDate: '2019-03-05 00:00',
   },
-];
+]

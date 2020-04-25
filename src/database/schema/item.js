@@ -50,6 +50,6 @@ const item = {
     thumbnailImage: () =>
       this.attachments.filter(a => a.type === 'thumb')[0].path,
   },
-};
+}
 
-export default item;
+export default item
