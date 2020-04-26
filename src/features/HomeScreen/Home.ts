@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect, ConnectedProps } from 'react-redux'
-import HomeScreen from '../components/HomeScreen'
-import { RootState } from '../redux'
+import HomeScreen from './HomeScreen'
+import { RootState } from '../../shared/slices'
 
 const mapStateToProps = ({ items }: RootState) => ({
   items,

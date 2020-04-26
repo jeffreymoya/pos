@@ -1,9 +1,9 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 
-import reducers from './redux'
-import epics from './epics'
+import reducers from './shared/slices'
+import epics from './shared/epics'
 import { createEpicMiddleware } from 'redux-observable'
-import { db, initDB } from './services/database'
+import { db, initDB } from './shared/services/database'
 import createNetworkMiddleware from 'react-native-offline/src/redux/createNetworkMiddleware'
 
 const epicMiddleware = createEpicMiddleware({

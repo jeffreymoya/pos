@@ -2,7 +2,7 @@ import React from 'react'
 import { StatusBar, StyleSheet } from 'react-native'
 import { ThemeProvider } from 'react-native-elements'
 import { Provider } from 'react-redux'
-import Home from './src/containers/Home'
+import Home from './src/features/HomeScreen/Home'
 import store from './src/store'
 
 const theme = {}

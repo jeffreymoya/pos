@@ -1,9 +1,6 @@
 import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Item } from './items'
-
-export const fetch = createAction<Order, 'fetch'>('fetch')
-export const sync = createAction<Order, 'sync'>('sync')
-export const syncSuccess = createAction<Order, 'syncSuccess'>('syncSuccess')
+import { ActionType } from 'typesafe-actions'
 
 export interface Order {
   id: string
@@ -39,6 +36,24 @@ const orders = createSlice({
   },
 })
 
-export const { add, update, remove, error, fetchSuccess } = orders.actions
+const actions = {
+  ...orders.actions,
+  fetch: createAction<Order, 'fetch'>('fetch'),
+  sync: createAction<Order, 'sync'>('sync'),
+  syncSuccess: createAction<Order, 'syncSuccess'>('syncSuccess'),
+}
+
+export const {
+  add,
+  update,
+  remove,
+  error,
+  fetchSuccess,
+  fetch,
+  sync,
+  syncSuccess,
+} = actions
+
+export type OrderAction = ActionType<typeof actions>
 
 export default orders.reducer

@@ -1,7 +1,7 @@
-import { error, fetch, fetchSuccess, Item } from '../redux/items'
+import { error, fetch, fetchSuccess, Item } from '../slices/items'
 import { of } from 'rxjs/src/internal/observable/of'
 import { filter, mergeMap } from 'rxjs/operators'
-import { RootState } from '../redux'
+import { RootState } from '../slices'
 import { Epic } from 'redux-observable'
 import { ActionType } from 'typesafe-actions'
 

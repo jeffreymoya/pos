@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Header } from 'react-native-elements'
 import ProductList from './ProductList'
-import { fetch } from '../redux/items'
+import { fetch } from '../../shared/slices/items'
 
 const HomeScreen = ({ items }) => {
   useEffect(() => {

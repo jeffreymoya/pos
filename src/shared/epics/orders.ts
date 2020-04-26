@@ -6,17 +6,16 @@ import {
   sync,
   syncSuccess,
   Order,
-} from '../redux/orders'
+  OrderAction,
+} from '../slices/orders'
 import { of } from 'rxjs/src/internal/observable/of'
 import { DATABASE_REMOTE_SERVER } from '../constants/rxdb'
 import { filter, mergeMap, mapTo } from 'rxjs/operators'
 import { Epic } from 'redux-observable'
-import { RootState } from '../redux'
-import { isOfType, ActionType } from 'typesafe-actions'
+import { RootState } from '../slices'
+import { isOfType } from 'typesafe-actions'
 
-type AddAction = ActionType<typeof add>
-
-const insertOrder: Epic<AddAction, AddAction, RootState> = (
+const insertOrder: Epic<OrderAction, OrderAction, RootState> = (
   action$,
   state$,
   { db }
@@ -32,9 +31,8 @@ const insertOrder: Epic<AddAction, AddAction, RootState> = (
     mapTo(sync())
   )
 
-type FetchAction = ActionType<typeof fetch>
-
-const fetchOrder: Epic<FetchAction, any, RootState> = (
+//FIXME: do not use `any`
+const fetchOrder: Epic<OrderAction, any, RootState> = (
   action$,
   state$,
   { db }
@@ -51,9 +49,7 @@ const fetchOrder: Epic<FetchAction, any, RootState> = (
     )
   )
 
-type SyncAction = ActionType<typeof sync>
-
-const syncOrder: Epic<SyncAction, SyncAction, RootState> = (
+const syncOrder: Epic<OrderAction, OrderAction, RootState> = (
   action$,
   state$,
   { db }
