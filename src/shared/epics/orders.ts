@@ -1,65 +1,64 @@
+import { Epic } from 'redux-observable'
+import {
+  filter,
+  mapTo,
+  mergeMap,
+  tap,
+  mergeMapTo,
+  map,
+  catchError,
+} from 'rxjs/operators'
+import { of } from 'rxjs/src/internal/observable/of'
+import { isOfType } from 'typesafe-actions'
+import { RootState } from '../slices'
 import {
   add,
   error,
   fetch,
   fetchSuccess,
-  sync,
-  syncSuccess,
   Order,
   OrderAction,
+  sync,
+  syncSuccess,
 } from '../slices/orders'
-import { of } from 'rxjs/src/internal/observable/of'
-import { DATABASE_REMOTE_SERVER } from '../constants/rxdb'
-import { filter, mergeMap, mapTo } from 'rxjs/operators'
-import { Epic } from 'redux-observable'
-import { RootState } from '../slices'
-import { isOfType } from 'typesafe-actions'
 
 const insertOrder: Epic<OrderAction, OrderAction, RootState> = (
   action$,
   state$,
-  { db }
+  { rxdb }
 ) =>
   action$.pipe(
     filter(isOfType(add.type)),
-    mergeMap(() =>
-      db
-        .get()
-        .orders.insert(state$)
-        .$.catchError((e: string) => of(error(e)))
-    ),
+    mergeMap(() => rxdb.insertOrder(state$)),
     mapTo(sync())
   )
 
-//FIXME: do not use `any`
-const fetchOrder: Epic<OrderAction, any, RootState> = (
+const fetchOrder: Epic<OrderAction, OrderAction, RootState> = (
   action$,
   state$,
-  { db }
+  { rxdb }
 ) =>
   action$.pipe(
     filter(isOfType(fetch.type)),
-    mergeMap(() =>
-      db
-        .get()
-        .orders.find(state$)
-        .exec()
-        .then((orders: Array<Order>) => fetchSuccess(orders))
-        .$.catchError((e: string) => of(error(e)))
+    tap(() => console.log('fetch orders')),
+    mergeMapTo(() =>
+      rxdb.findAllOrders().pipe(
+        map((orders: Array<Order>) => fetchSuccess(orders)),
+        catchError((e: string) => of(error(e)))
+      )
     )
   )
 
 const syncOrder: Epic<OrderAction, OrderAction, RootState> = (
   action$,
   state$,
-  { db }
+  { rxdb }
 ) =>
   action$.pipe(
-    filter(sync.match),
+    filter(isOfType(sync.type)),
     mergeMap(() =>
-      db
-        .get()
-        .orders.sync(DATABASE_REMOTE_SERVER)
+      rxdb
+        .syncOrder()
         .complete$.subscribe(syncSuccess())
         .$.catchError((e: string) => of(error(e)))
     ),

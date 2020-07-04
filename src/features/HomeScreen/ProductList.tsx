@@ -3,9 +3,9 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Card, Icon, Button } from 'react-native-elements'
 import { Item } from '../../shared/slices/items'
 
-const ProductList = ({ items }) => (
+const ProductList = ({ items: { data } }) => (
   <View style={styles.container}>
-    {items.map((product: Item, i: number) => (
+    {data.map((product: Item, i: number) => (
       <Card key={i} title={product.name} image={[{ uri: product.code }]}>
         <Text style={styles.text}>{product.description}</Text>
         <Button

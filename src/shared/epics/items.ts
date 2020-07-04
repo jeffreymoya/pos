@@ -1,22 +1,25 @@
-import { error, fetch, fetchSuccess, Item } from '../slices/items'
-import { of } from 'rxjs/src/internal/observable/of'
-import { filter, mergeMap } from 'rxjs/operators'
-import { RootState } from '../slices'
 import { Epic } from 'redux-observable'
-import { ActionType } from 'typesafe-actions'
+import { catchError, filter, mergeMapTo, tap, map } from 'rxjs/operators'
+import { of } from 'rxjs/src/internal/observable/of'
+import { isOfType } from 'typesafe-actions'
+import { RootState } from '../slices'
+import { error, fetch, fetchSuccess, ItemAction } from '../slices/items'
 
-type FetchAction = ActionType<typeof fetch>
-
-const itemEpic: Epic<FetchAction, any, RootState> = (action$, state$, { db }) =>
+const itemEpic: Epic<ItemAction, any, RootState> = (
+  action$,
+  state$,
+  { rxdb }
+) =>
   action$.pipe(
-    filter(fetch.match),
-    mergeMap(() => {
-      console.log('fetching items..')
-      return db
-        .get()
-        .findAll()
-        .then((items: Array<Item>) => fetchSuccess(items))
-        .$.catchError((e: string) => of(error(e)))
+    filter(isOfType(fetch.type)),
+    tap(() => console.log('fetch items')),
+    mergeMapTo(rxdb.getAllItems()),
+    tap(items => console.log('dis items', items.length)),
+    catchError((e: string) => of(error(e))),
+    map(items => {
+      console.log('fetch success1')
+      console.log(items.length)
+      return fetchSuccess(items)
     })
   )
 

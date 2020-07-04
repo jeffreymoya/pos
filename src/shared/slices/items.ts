@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { createAction } from '@reduxjs/toolkit/src/createAction'
-
-export const fetch = createAction('fetch')
+import { ActionType } from 'typesafe-actions'
 
 export interface Item {
   code: string
@@ -17,16 +16,21 @@ export interface Item {
   attachments?: string
 }
 
-const initialState: Array<Item> = []
+export interface Items {
+  data: Array<Item>
+}
+
+const initialState: Items = {
+  data: [],
+}
 
 const items = createSlice({
   name: 'items',
   initialState,
   reducers: {
-    fetchSuccess: (state, action: PayloadAction<Array<Item>>) => [
-      ...state,
-      ...action.payload,
-    ],
+    fetchSuccess: (state, action: PayloadAction<Array<Item>>) => {
+      state.data = action.payload
+    },
     error: (state, action: PayloadAction<string>) => ({
       error: true,
       errorMessage: action.payload,
@@ -35,6 +39,13 @@ const items = createSlice({
   },
 })
 
-export const { fetchSuccess, error } = items.actions
+const actions = {
+  ...items.actions,
+  fetch: createAction<Item, 'fetchItems'>('fetchItems'),
+}
+
+export const { error, fetchSuccess, fetch } = actions
+
+export type ItemAction = ActionType<typeof actions>
 
 export default items.reducer

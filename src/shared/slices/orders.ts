@@ -38,9 +38,9 @@ const orders = createSlice({
 
 const actions = {
   ...orders.actions,
-  fetch: createAction<Order, 'fetch'>('fetch'),
-  sync: createAction<Order, 'sync'>('sync'),
-  syncSuccess: createAction<Order, 'syncSuccess'>('syncSuccess'),
+  fetch: createAction<Order, 'fetchOrders'>('fetchOrders'),
+  sync: createAction<Order, 'syncOrders'>('syncOrders'),
+  syncSuccess: createAction<Order, 'syncOrdersSuccess'>('syncOrdersSuccess'),
 }
 
 export const {

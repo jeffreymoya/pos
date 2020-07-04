@@ -1,49 +1,65 @@
-import RxDB, { RxDatabase, RxReplicationState } from 'rxdb'
+import RxDB, { RxDatabase, RxReplicationState, RxQuery } from 'rxdb'
 import { DATABASE_NAME, DATABASE_REMOTE_SERVER } from '../constants/rxdb'
+import { Order } from '../slices/orders'
 import collections from './collections'
 import testItems from './testitems'
 
-/**
- * creates the database
- */
-async function _create(): Promise<RxDatabase> {
-  console.log('creating database..')
+export default class DatabaseService {
+  private rxdb: RxDatabase
 
-  RxDB.plugin(require('pouchdb-adapter-asyncstorage'))
-  RxDB.plugin(require('pouchdb-adapter-http'))
+  public syncOrders() {
+    return this.rxdb.orders.sync({ remote: DATABASE_REMOTE_SERVER })
+  }
 
-  const db: RxDatabase = await RxDB.create({
-    name: DATABASE_NAME,
-    adapter: 'asyncstorage',
-    queryChangeDetection: true,
-  })
-  console.log('created database')
+  public getAllItems() {
+    return this.toJSON(this.rxdb.items.find().exec())
+  }
 
-  // create collections
-  await Promise.all(collections.map(colData => db.collection(colData)))
+  public getAllOrders() {
+    return this.rxdb.orders.find().exec()
+  }
 
-  testItems.forEach(i => db.items.insert(i))
+  public insertOrder(order: Order) {
+    return this.rxdb.orders.insert(order)
+  }
 
-  db.collections.orders.preInsert(() => {
-    // add hooks
-  })
+  private toJSON(promise) {
+    return promise.then(items => items.map(item => item.toJSON()))
+  }
 
-  console.log('syncing..')
-  // sync with server
-  const replicationState: RxReplicationState = db.orders.sync({
-    remote: DATABASE_REMOTE_SERVER,
-  })
+  public async init() {
+    if (this.rxdb) {
+      return
+    }
 
-  replicationState.error$.subscribe(error => console.dir(error))
+    console.log('creating database..')
 
-  return db
+    RxDB.plugin(require('pouchdb-adapter-asyncstorage'))
+    RxDB.plugin(require('pouchdb-adapter-http'))
+
+    this.rxdb = await RxDB.create({
+      name: DATABASE_NAME,
+      adapter: 'asyncstorage',
+      queryChangeDetection: true,
+      multiInstance: false,
+    })
+    console.log('created database')
+
+    // create collections
+    await Promise.all(collections.map(colData => this.rxdb.collection(colData)))
+
+    this.rxdb.collections.items.postInsert(data => {
+      console.dir(data)
+    }, true)
+
+    testItems.forEach(i => this.rxdb.items.insert(i))
+
+    console.log('syncing..')
+    // sync with server
+    const replicationState: RxReplicationState = this.rxdb.orders.sync({
+      remote: DATABASE_REMOTE_SERVER,
+    })
+
+    replicationState.error$.subscribe(error => console.dir(error))
+  }
 }
-
-let INSTANCE: RxDatabase
-
-export async function initDB() {
-  console.log('initDB()')
-  INSTANCE = await _create()
-}
-
-export const db = { get: () => INSTANCE }
