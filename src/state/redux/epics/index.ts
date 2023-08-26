@@ -1,6 +1,6 @@
 import { combineEpics } from 'redux-observable'
 
-import { fetchOrder, syncOrder, insertOrder } from './orders'
+import { fetchOrder, insertOrder, syncOrder } from './orders'
 import sync from './sync'
 import items from './items'
 

@@ -1,9 +1,9 @@
 import { offlineActionTypes } from 'react-native-offline'
-import { DATABASE_REMOTE_SERVER } from '../constants/rxdb'
-import toast from '../utilities/toast'
+import { DATABASE_REMOTE_SERVER } from '../../../common/rxdb'
+import toast from '../../../common/utilities/toast'
 
-import { filter, mergeMap, tap, catchError } from 'rxjs/operators'
-import { ofType, Epic } from 'redux-observable'
+import { catchError, filter, mergeMap, tap } from 'rxjs/operators'
+import { Epic, ofType } from 'redux-observable'
 
 type Action = typeof offlineActionTypes
 
@@ -22,7 +22,7 @@ const syncEpic: Epic<Action, Action, NetworkState> = (
     filter(() => $state.value.isConnected),
     tap(() => toast('Syncing..')),
     mergeMap(() => db.get().orders.sync(DATABASE_REMOTE_SERVER)),
-    catchError(e => toast(e))
+    catchError((e) => toast(e))
   )
 
 export default syncEpic

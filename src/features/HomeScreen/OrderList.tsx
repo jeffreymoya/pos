@@ -2,7 +2,7 @@ import React from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import { Button, Icon } from 'react-native-elements'
 import OrderItem from './OrderItem'
-import { Order } from '../../shared/slices/orders'
+import { Order } from '../../state/redux/slices/orders'
 
 const OrderList = ({ orders }) => (
   <View style={styles.container}>

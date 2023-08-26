@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { Card, Icon, Button } from 'react-native-elements'
-import { Item } from '../../shared/slices/items'
+import { Button, Card, Icon } from 'react-native-elements'
+import { Item } from '../../state/redux/slices/items'
 
 const ProductList = ({ items: { data } }) => (
   <View style={styles.container}>
