@@ -26,7 +26,7 @@ export function DiscoverListItem({item}) {
 
 const styles = StyleSheet.create({
     badgeContainer: {
-        backgroundColor: '#959595',
+        backgroundColor: '#334455',
         borderRadius: 12,
         height: 24,
         minWidth: 24,
@@ -47,16 +47,15 @@ const styles = StyleSheet.create({
     listItem: {
         gridTemplateColumns: "1fr 3fr 1fr",
         alignItems: "center",
-        padding: "10px 30px 10px 10px",
+        padding: 5,
+        height: 50,
         overflow: "hidden",
         borderRadius: "5px",
-        boxShadow: "0 5px 7px -1px rgba(51, 51, 51, 0.23)",
+        boxShadow: "0 5px 7px -1px rgba(51, 51, 51, 0.13)",
         transition: "transform .25s cubic-bezier(.7,.98,.86,.98), box-shadow .25s cubic-bezier(.7,.98,.86,.98)",
-        backgroundColor: "#f5f5f5",
         margin: 5,
     },
     title: {
-        fontFamily: 'Montserrat',
         fontSize: 12,
         fontWeight: 'bold',
         color: '#000',

@@ -23,8 +23,6 @@ export function DiscoverScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        fontFamily: 'Montserrat',
-        fontWeight: 'bold',
     },
     content: {
         padding: 16,
