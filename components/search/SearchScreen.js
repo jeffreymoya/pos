@@ -3,12 +3,12 @@ import {View} from "react-native";
 import {useState} from "react";
 
 export function SearchScreen() {
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useState('')
 
     const handleSearch = () => {
         // Add your location search logic here
-        console.log(`Searching for: ${searchQuery}`);
-    };
+        console.log(`Searching for: ${searchQuery}`)
+    }
 
     return (
         <View style={{flex: 1, padding: 16}}>
@@ -21,5 +21,5 @@ export function SearchScreen() {
             />
             <Button title="Search" onPress={handleSearch}/>
         </View>
-    );
-};
+    )
+}

@@ -43,9 +43,6 @@ const light = {
             "backdrop": "rgba(44, 49, 55, 0.4)"
         }
     },
-    font: () => ({
-        'Montserrat': require('/assets/fonts/Montserrat-VariableFont.ttf')
-    })
 }
 
-export default light;
+export default light

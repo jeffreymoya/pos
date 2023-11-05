@@ -17,7 +17,7 @@ export function DiscoverScreen() {
                 <DiscoverList/>
             </View>
         </View>
-    );
+    )
 }
 
 const styles = StyleSheet.create({
@@ -27,4 +27,4 @@ const styles = StyleSheet.create({
     content: {
         padding: 16,
     },
-});
+})

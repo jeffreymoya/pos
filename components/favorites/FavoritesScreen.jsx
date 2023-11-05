@@ -1,13 +1,13 @@
-import React from 'react';
-import {FlatList, Text, View} from 'react-native';
-import {Card, List, Title} from 'react-native-paper';
+import React from 'react'
+import {FlatList, Text, View} from 'react-native'
+import {Card, List, Title} from 'react-native-paper'
 
 export function FavoritesScreen() {
     const favoritesData = [
         {id: '1', name: 'Favorite Location 1'},
         {id: '2', name: 'Favorite Location 2'},
         {id: '3', name: 'Favorite Location 3'},
-    ];
+    ]
 
     return (
         <View style={{flex: 1, padding: 16}}>
@@ -29,6 +29,6 @@ export function FavoritesScreen() {
                 <Text style={{textAlign: 'center'}}>You have no favorites yet.</Text>
             )}
         </View>
-    );
-};
+    )
+}
 

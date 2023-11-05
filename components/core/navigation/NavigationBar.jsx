@@ -6,7 +6,7 @@ import {FavoritesScreen} from "../../favorites/FavoritesScreen";
 import * as React from "react";
 import {createMaterialBottomTabNavigator} from "react-native-paper/react-navigation";
 
-const Tab = createMaterialBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator()
 
 export function NavigationBar() {
     return (
@@ -32,5 +32,5 @@ export function NavigationBar() {
                 }}/>
             </Tab.Navigator>
         </NavigationContainer>
-    );
+    )
 }
