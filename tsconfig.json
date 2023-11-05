@@ -6,7 +6,7 @@
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "importHelpers": true,
-    "jsx": "react",
+    "jsx": "react-native",
     "alwaysStrict": true,
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
@@ -17,20 +17,24 @@
     "noImplicitAny": false,
     "noImplicitThis": false,
     "strictNullChecks": false,
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "strict": true,
     "outDir": "./build",
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "@tests/*": [
-        "__tests__/*"
-      ],
-      "@theme/*": [
-        "src/theme/*"
-      ],
       "@redux/*": [
         "src/redux/*"
       ],
       "@components/*": [
         "src/components/*"
+      ],
+      "@theme/*": [
+        "src/theme/*"
       ]
     }
   },

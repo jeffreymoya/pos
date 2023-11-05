@@ -4,10 +4,5 @@ module.exports = {
 		sourceType: 'module',
 		project: './tsconfig.json',
 	},
-	extends: [
-		'airbnb',
-		'plugin:@typescript-eslint/recommended',
-		'prettier/@typescript-eslint',
-		'plugin:prettier/recommended',
-	],
+	extends: ['airbnb', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended', 'prettier'],
 }

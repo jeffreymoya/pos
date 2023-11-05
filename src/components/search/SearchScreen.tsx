@@ -19,7 +19,7 @@ export function SearchScreen() {
 				onIconPress={handleSearch}
 				iconColor="#007AFF"
 			/>
-			<Button onPress={handleSearch}>Search</Button>
+			<Button title="Search" onPress={handleSearch} />
 		</View>
 	)
 }

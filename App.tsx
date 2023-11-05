@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { NavigationBar } from './src/components/common/navigation/NavigationBar'
+import { NavigationBar } from '@components/common/navigation/NavigationBar'
 import useThemeFont from './src/core/hooks/useThemeFont'
 import Providers from './src/Providers'
 import { View } from 'react-native'

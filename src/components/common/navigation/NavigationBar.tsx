@@ -1,10 +1,9 @@
-import { NavigationContainer } from '@react-navigation/native'
-import { DiscoverScreen } from '../../discover/DiscoverScreen'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { SearchScreen } from '../../search/SearchScreen'
-import { FavoritesScreen } from '../../favorites/FavoritesScreen'
-import * as React from 'react'
-import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation'
+import { NavigationContainer } from "@react-navigation/native";
+import { DiscoverScreen } from "@components/discover/DiscoverScreen";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import * as React from "react";
+import { createMaterialBottomTabNavigator } from "react-native-paper/react-navigation";
+import { SearchScreen } from '"@components/search/SearchScreen";import { FavoritesScreen } from '"@components/favorites/FavoritesScreen";
 
 const Tab = createMaterialBottomTabNavigator()
 
