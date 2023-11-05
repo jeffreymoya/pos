@@ -2,7 +2,7 @@ import { StyleSheet, View, ViewProps } from 'react-native'
 import { Avatar, Text } from 'react-native-paper'
 import Item from '../common/Item'
 import React from 'react'
-import { useAppTheme } from '@theme/light'
+import { useAppTheme } from '@theme/index'
 
 export function DiscoverListItem({ item }) {
 	const theme = useAppTheme()

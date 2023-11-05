@@ -19,25 +19,18 @@
     "strictNullChecks": false,
     "outDir": "./build",
     "baseUrl": ".",
-    "importsNotUsedAsValues": "error",
     "paths": {
-      "@server/*": [
-        "src/*"
-      ],
       "@tests/*": [
         "__tests__/*"
-      ],
-      "@core/*": [
-        "src/components/core/*"
       ],
       "@theme/*": [
         "src/theme/*"
       ],
-      "@controller/*": [
-        "src/controller/*"
+      "@redux/*": [
+        "src/redux/*"
       ],
-      "@middleware/*": [
-        "src/middleware/*"
+      "@components/*": [
+        "src/components/*"
       ]
     }
   },
@@ -48,5 +41,6 @@
   "exclude": [
     "node_modules",
     "build"
-  ]
+  ],
+  "extends": "expo/tsconfig.base"
 }

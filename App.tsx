@@ -1,20 +1,25 @@
 import * as React from 'react'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { NavigationBar } from './src/components/core/navigation/NavigationBar'
-import { PaperProvider } from 'react-native-paper'
-import useMontserratFont from './src/components/core/hooks/useMontserratFont'
-import { theme } from '@theme/light'
+import { NavigationBar } from './src/components/common/navigation/NavigationBar'
+import useThemeFont from './src/core/hooks/useThemeFont'
+import Providers from './src/Providers'
+import { View } from 'react-native'
 
-export default function App() {
-	const [isLoaded, onLayoutRootView] = useMontserratFont()
+function Main() {
+	const [isFontLoading, onLayoutRootView] = useThemeFont()
 
-	if (!isLoaded) return null
+	if (isFontLoading) return null
 
 	return (
-		<SafeAreaProvider onLayout={onLayoutRootView}>
-			<PaperProvider theme={theme}>
-				<NavigationBar />
-			</PaperProvider>
-		</SafeAreaProvider>
+		<View onLayout={onLayoutRootView}>
+			<NavigationBar />
+		</View>
+	)
+}
+
+export default function App() {
+	return (
+		<Providers>
+			<Main />
+		</Providers>
 	)
 }
