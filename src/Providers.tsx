@@ -4,12 +4,15 @@ import { Provider } from 'react-redux'
 import { store } from '@redux/store'
 import { combineProviders } from '@components/common/utilities/combineProviders'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { useColorScheme } from 'react-native'
 import { themeConfig } from '@theme/index'
 
+/**
+ * TODO: store theme preference in redux
+ * @param children
+ * @constructor
+ */
 function ThemeProvider({ children }) {
-	const scheme = useColorScheme()
-	const theme = themeConfig(scheme)
+	const theme = themeConfig('light')
 	return <PaperProvider theme={theme}>{children}</PaperProvider>
 }
 
@@ -18,4 +21,4 @@ function ReduxProvider({ children }) {
 }
 
 export default ({ children }: { children: React.ReactNode }) =>
-	combineProviders([ReduxProvider, ThemeProvider, SafeAreaProvider], children)
+	combineProviders([React.StrictMode, SafeAreaProvider, ThemeProvider, ReduxProvider], children)

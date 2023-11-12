@@ -1,8 +1,16 @@
 import React, { memo } from 'react'
 import { List } from 'react-native-paper'
 import { StyleSheet } from 'react-native'
+import { Style } from 'react-native-paper/src/components/List/utils'
 
-const Item = ({ left, right, title }) => {
+type PaperProps = { color: string; style?: Style }
+
+type ItemProps = {
+	left?: (props: PaperProps) => React.ReactNode
+	right?: (props: PaperProps) => React.ReactNode
+	title: string
+}
+const Item = ({ left, right, title }: ItemProps) => {
 	return <List.Item style={styles.listItem} titleStyle={styles.title} title={title} left={left} right={right} />
 }
 

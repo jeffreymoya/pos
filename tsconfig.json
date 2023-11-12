@@ -40,11 +40,16 @@
   },
   "include": [
     "src/**/*",
+    "node_modules/@types/**/*",
     "__tests__/**/*"
   ],
   "exclude": [
     "node_modules",
     "build"
   ],
-  "extends": "expo/tsconfig.base"
+  "extends": "expo/tsconfig.base",
+  "typeRoots": [
+    "src/types",
+    "node_modules/@types"
+  ]
 }
