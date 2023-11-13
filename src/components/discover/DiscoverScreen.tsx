@@ -1,14 +1,15 @@
-import { StyleSheet, View } from 'react-native'
-import { Appbar, Divider } from 'react-native-paper'
-import { DiscoverList } from './DiscoverList'
-import { DistanceSlider } from './DistanceSlider'
-import React, { useCallback } from 'react'
-import { useAppDispatch, useAppSelector } from '@redux/store'
-import { fetchSliderValue, setDistanceSliderValue } from '@redux/slices/DiscoverSlice'
+import { StyleSheet, View } from "react-native";
+import { Appbar, Divider } from "react-native-paper";
+import { DiscoverList } from "./DiscoverList";
+import { DistanceSlider } from "./DistanceSlider";
+import React, { useCallback } from "react";
+import { useAppDispatch, useAppSelector } from "@redux/store";
+import { selectResults, selectSliderValue, setDistanceSliderValue } from "@redux/slices/DiscoverSlice";
 
 export function DiscoverScreen() {
 	const dispatch = useAppDispatch()
-	const distance = useAppSelector(fetchSliderValue)
+	const distance = useAppSelector(selectSliderValue)
+	const results = useAppSelector(selectResults)
 	const onDistanceSliderChange = useCallback((value: number) => dispatch(setDistanceSliderValue(value)), [])
 	return (
 		<View>
@@ -18,7 +19,7 @@ export function DiscoverScreen() {
 			<DistanceSlider distance={distance} onChange={onDistanceSliderChange} />
 			<Divider />
 			<View style={styles.content}>
-				<DiscoverList />
+				<DiscoverList data={results} />
 			</View>
 		</View>
 	)

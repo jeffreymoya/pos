@@ -5,4 +5,7 @@ module.exports = {
 		project: './tsconfig.json',
 	},
 	extends: ['airbnb', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended', 'prettier'],
+	globals: {
+		"google": "readonly",
+	}
 }

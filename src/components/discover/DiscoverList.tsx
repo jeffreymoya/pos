@@ -1,15 +1,10 @@
-import React from 'react'
-import { FlatList, StyleSheet, View } from 'react-native'
-import { DiscoverListItem } from './DiscoverListItem'
+import React from "react";
+import { FlatList, StyleSheet, View } from "react-native";
+import { DiscoverListItem } from "./DiscoverListItem";
+import { DiscoverResult } from "@redux/slices/DiscoverSlice";
+import { WithProperty } from "@wayloc/types/helper.d";
 
-const data = [
-	{ id: '1', title: 'Item 1', count: 5, icon: 'facebook', description: 'This is item 1' },
-	{ id: '2', title: 'Item 2', count: 10, icon: 'waze', description: 'This is item 2' },
-	{ id: '3', title: 'Item 3', count: 2, icon: 'google-maps', description: 'This is item 3' },
-	// Add more data items as needed
-]
-
-export function DiscoverList() {
+export function DiscoverList({data}: WithProperty<DiscoverResult[]>) {
 	return (
 		<View style={styles.container}>
 			<FlatList

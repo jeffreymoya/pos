@@ -1,11 +1,14 @@
-import { StyleSheet, View, ViewProps } from 'react-native'
-import { Avatar, Text } from 'react-native-paper'
-import Item from '../common/Item'
-import React from 'react'
-import { useAppTheme } from '@theme/index'
+import { StyleSheet, View, ViewProps } from "react-native";
+import { Avatar, Text } from "react-native-paper";
+import Item from "../common/Item";
+import React from "react";
+import { useAppTheme } from "@theme/index";
+import { DiscoverResult } from "@redux/slices/DiscoverSlice";
+import { WithProperty } from "@wayloc/types/helper.d";
 
-export function DiscoverListItem({ item }) {
+export function DiscoverListItem({ item }: WithProperty<DiscoverResult>) {
 	const theme = useAppTheme()
+
 	return (
 		<Item
 			title={item.title}

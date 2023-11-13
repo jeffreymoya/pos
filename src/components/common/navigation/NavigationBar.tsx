@@ -1,18 +1,23 @@
-import { NavigationContainer } from '@react-navigation/native'
-import { DiscoverScreen } from '@components/discover/DiscoverScreen'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import * as React from 'react'
-import { useCallback } from 'react'
-import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation'
-import { SearchScreen } from '@components/search/SearchScreen'
-import { FavoritesScreen } from '@components/favorites/FavoritesScreen'
+import { NavigationContainer } from "@react-navigation/native";
+import { DiscoverScreen } from "@components/discover/DiscoverScreen";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import * as React from "react";
+import { useCallback } from "react";
+import { createMaterialBottomTabNavigator } from "react-native-paper/react-navigation";
+import { SearchScreen } from "@components/search/SearchScreen";
+import { FavoritesScreen } from "@components/favorites/FavoritesScreen";
 
 const Tab = createMaterialBottomTabNavigator()
 
+type NameTypes = 'near-me' | 'map-search' | 'heart'
+type IconProps = {
+	color: string,
+	focused: boolean,
+}
 export function NavigationBar() {
 	const useIcon = useCallback(
-		({ name }) =>
-			({ color }) => <MaterialCommunityIcons name={name} color={color} size={26} />,
+		(name: NameTypes) =>
+			({ color }: IconProps) => <MaterialCommunityIcons name={name} color={color} size={26} />,
 		[],
 	)
 	return (
@@ -23,7 +28,7 @@ export function NavigationBar() {
 					component={DiscoverScreen}
 					options={{
 						tabBarLabel: 'Discover',
-						tabBarIcon: useIcon({ name: 'near-me' }),
+						tabBarIcon: useIcon( 'near-me'),
 					}}
 				/>
 				<Tab.Screen
@@ -31,7 +36,7 @@ export function NavigationBar() {
 					component={SearchScreen}
 					options={{
 						tabBarLabel: 'Search',
-						tabBarIcon: useIcon({ name: 'map-search' }),
+						tabBarIcon: useIcon( 'map-search'),
 					}}
 				/>
 				<Tab.Screen
@@ -39,7 +44,7 @@ export function NavigationBar() {
 					component={FavoritesScreen}
 					options={{
 						tabBarLabel: 'Favorites',
-						tabBarIcon: useIcon({ name: 'heart' }),
+						tabBarIcon: useIcon( 'heart'),
 					}}
 				/>
 			</Tab.Navigator>

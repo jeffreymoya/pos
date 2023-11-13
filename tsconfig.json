@@ -3,7 +3,6 @@
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "importHelpers": true,
     "jsx": "react-native",
@@ -14,9 +13,10 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitAny": false,
-    "noImplicitThis": false,
-    "strictNullChecks": false,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
     "lib": [
       "dom",
       "esnext"
@@ -27,6 +27,12 @@
     "outDir": "./build",
     "baseUrl": "./",
     "paths": {
+      "@core/*": [
+        "src/core/*"
+      ],
+      "@wayloc/types/*": [
+        "src/types/*"
+      ],
       "@redux/*": [
         "src/redux/*"
       ],
@@ -36,7 +42,8 @@
       "@theme/*": [
         "src/theme/*"
       ]
-    }
+    },
+    "types": ["google.maps"]
   },
   "include": [
     "src/**/*",
@@ -51,5 +58,5 @@
   "typeRoots": [
     "src/types",
     "node_modules/@types"
-  ]
+  ],
 }
